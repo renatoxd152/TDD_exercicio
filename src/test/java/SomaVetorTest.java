@@ -18,4 +18,20 @@ public class SomaVetorTest {
         assertArrayEquals(c,somarVetor.somar(a,b));
 
     }
+
+    @Test
+    @DisplayName("Se os dois vetores forem nulos, devem retornar um array ")
+
+    public void vetoresNulos()
+    {
+        SomarVetor somarVetor = new SomarVetor();
+
+        int [] a = null;
+        int [] b = null;
+
+        int [] c = {};
+
+        assertArrayEquals(c, somarVetor.somar(a,b));
+    }
+
 }
