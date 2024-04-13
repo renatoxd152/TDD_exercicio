@@ -2,6 +2,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SomaVetorTest {
     @Test
@@ -35,7 +36,7 @@ public class SomaVetorTest {
     }
 
     @Test
-    @DisplayName("Deve retornar um vetor vazio para vetores de tamanhos diferentes")
+    @DisplayName("Deve retornar um exceção para vetores de tamanhos diferentes")
 
     public void vetoresDiferentes()
     {
@@ -43,9 +44,10 @@ public class SomaVetorTest {
         int[] a = {2,5,10,190};
         int[] b = {2,4};
 
-        int[] c = {};
+        assertThrows(IllegalArgumentException.class, () -> {
+            somarVetor.somar(a, b);
+        });
 
-        assertArrayEquals(c, somarVetor.somar(a, b));
     }
 
 }
