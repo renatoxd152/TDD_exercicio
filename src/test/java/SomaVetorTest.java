@@ -75,5 +75,16 @@ public class SomaVetorTest {
         assertArrayEquals(c, somarVetor.somar(a, b));
     }
 
+    @Test
+    @DisplayName("Deve retornar uma exceção se um dos vetores for nulo")
+    public void algumVetorNulo()
+    {
+        SomarVetor somarVetor = new SomarVetor();
+        int[] a = null;
+        int[] b = {8, -51, 2, -16, 5};
 
+        assertThrows(IllegalArgumentException.class, () -> {
+            somarVetor.somar(a, b);
+        });
+    }
 }
