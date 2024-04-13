@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SomaVetorTest {
     @Test
-    @DisplayName("Deve resultar em um terceiro vetor vazio")
+    @DisplayName("Deve resultar em uma exceção se os dois vetores forem vazios")
     public void resultaVetorVazio()
     {
         SomarVetor somarVetor = new SomarVetor();
@@ -14,14 +14,15 @@ public class SomaVetorTest {
         int[] a = {};
         int[] b = {};
 
-        int[] c = {};
 
-        assertArrayEquals(c,somarVetor.somar(a,b));
+        assertThrows(IllegalArgumentException.class, () -> {
+            somarVetor.somar(a, b);
+        });
 
     }
 
     @Test
-    @DisplayName("Se os dois vetores forem nulos, devem retornar um array ")
+    @DisplayName("Se os dois vetores forem nulos, devem retornar uma exceção")
 
     public void vetoresNulos()
     {
@@ -30,9 +31,10 @@ public class SomaVetorTest {
         int [] a = null;
         int [] b = null;
 
-        int [] c = {};
 
-        assertArrayEquals(c, somarVetor.somar(a,b));
+        assertThrows(IllegalArgumentException.class, () -> {
+            somarVetor.somar(a, b);
+        });
     }
 
     @Test
