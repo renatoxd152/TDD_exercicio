@@ -47,7 +47,19 @@ public class SomaVetorTest {
         assertThrows(IllegalArgumentException.class, () -> {
             somarVetor.somar(a, b);
         });
+    }
 
+    @Test
+    @DisplayName("Deve retornar um terceiro vetor C com a soma do vetor A e B")
+    public void vetoresIguais()
+    {
+        SomarVetor somarVetor = new SomarVetor();
+        int[] a = {2,4,6,8,10};
+        int[] b = {4,6,8,10,12};
+
+        int[]c = {6,10,14,18,22};
+
+        assertArrayEquals(c,somarVetor.somar(a,b));
     }
 
 }
